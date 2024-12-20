@@ -14,41 +14,41 @@
 using namespace std;
 
 void displayMenu() {
-    cout << u8"\nÌåíþ:\n";
-    cout << u8"1. Ââåñòè ³íôîðìàö³þ ïðî ñòóäåíòà (Ò³ëüêè àíãë³éñüêà ìîâà)\n";
-    cout << u8"2. Ââåñòè ³íôîðìàö³þ ïðî áàëè\n";
-    cout << u8"3. Âèâåñòè ³íôîðìàö³þ ïðî ñòóäåíò³â\n";
-    cout << u8"4. Âèâåñòè ³íôîðìàö³þ ïðî áàëè\n";
-    cout << u8"5. Àíàë³ç ³íôîðìàö³¿ ïðî áàëè\n";
-    cout << u8"6. Çáåðåãòè çì³íó äî xlsx ôàéëó\n";
-    cout << u8"7. Ñòâîðèòè øàáëîí xlsx ôàéëó\n";
+    cout << u8"\nÐœÐµÐ½ÑŽ:\n";
+    cout << u8"1. Ð’Ð²ÐµÑÑ‚Ð¸ Ñ–Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ñ–ÑŽ Ð¿Ñ€Ð¾ ÑÑ‚ÑƒÐ´ÐµÐ½Ñ‚Ð° (Ð¢Ñ–Ð»ÑŒÐºÐ¸ Ð°Ð½Ð³Ð»Ñ–Ð¹ÑÑŒÐºÐ° Ð¼Ð¾Ð²Ð°)\n";
+    cout << u8"2. Ð’Ð²ÐµÑÑ‚Ð¸ Ñ–Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ñ–ÑŽ Ð¿Ñ€Ð¾ Ð±Ð°Ð»Ð¸\n";
+    cout << u8"3. Ð’Ð¸Ð²ÐµÑÑ‚Ð¸ Ñ–Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ñ–ÑŽ Ð¿Ñ€Ð¾ ÑÑ‚ÑƒÐ´ÐµÐ½Ñ‚Ñ–Ð²\n";
+    cout << u8"4. Ð’Ð¸Ð²ÐµÑÑ‚Ð¸ Ñ–Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ñ–ÑŽ Ð¿Ñ€Ð¾ Ð±Ð°Ð»Ð¸\n";
+    cout << u8"5. ÐÐ½Ð°Ð»Ñ–Ð· Ñ–Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ñ–Ñ— Ð¿Ñ€Ð¾ Ð±Ð°Ð»Ð¸\n";
+    cout << u8"6. Ð—Ð±ÐµÑ€ÐµÐ³Ñ‚Ð¸ Ð·Ð¼Ñ–Ð½Ñƒ Ð´Ð¾ xlsx Ñ„Ð°Ð¹Ð»Ñƒ\n";
+    cout << u8"7. Ð¡Ñ‚Ð²Ð¾Ñ€Ð¸Ñ‚Ð¸ ÑˆÐ°Ð±Ð»Ð¾Ð½ xlsx Ñ„Ð°Ð¹Ð»Ñƒ\n";
     cout << u8"8. Exit\n";
 }
 #include <locale>
 #include <codecvt>
 void enterStudentData(Student students[100], int n) {
     // Full Name
-    cout << u8"Ôàì³ë³ÿ: ";
+    cout << u8"ÐŸÑ€Ñ–Ð·Ð²Ð¸Ñ‰Ðµ: ";
     getline(cin, students[n].lName);
     // Full Name
-    cout << u8"²ì'ÿ: ";
+    cout << u8"Ð†Ð¼'Ñ: ";
     getline(cin, students[n].fName);
     // Full Name
-    cout << u8"Ïî áàòüêîâ³: ";
+    cout << u8"ÐŸÐ¾ Ð±Ð°Ñ‚ÑŒÐºÐ¾Ð²Ñ–: ";
     getline(cin, students[n].ftName);
     // Full Name
-    cout << u8"Òåëåôîí: ";
+    cout << u8"Ð¢ÐµÐ»ÐµÑ„Ð¾Ð½: ";
     getline(cin, students[n].phone);
     // Full Name
-    cout << u8"Ì³ñòî: ";
+    cout << u8"ÐœÑ–ÑÑ‚Ð¾: ";
     getline(cin, students[n].city);
 }
 
 void enterGradesData(Student students[100], int n, double grades[100][100][100], int subj_num, int grades_num[20], string subj_names[100]) {
 
-    cout << u8"\nÂâåä³òü áàëè ñòóäåíòà " << n << " (" << students[n].lName << ' ' << students[n].fName << ' ' << students[n].ftName << "): \n";
+    cout << u8"\nÐ’Ð²ÐµÐ´Ñ–Ñ‚ÑŒ Ð±Ð°Ð»Ð¸ ÑÑ‚ÑƒÐ´ÐµÐ½Ñ‚Ð° " << n << " (" << students[n].lName << ' ' << students[n].fName << ' ' << students[n].ftName << "): \n";
     for (int j = 0; j < subj_num; j++) {
-        cout << u8"Ïðåäìåò - " << subj_names[j] << u8"\nÊ³ëüê³ñòü ðîá³ò - " << grades_num[j] - 1 << '\n';
+        cout << u8"ÐŸÑ€ÐµÐ´Ð¼ÐµÑ‚ - " << subj_names[j] << u8"\nÐšÑ–Ð»ÑŒÐºÑ–ÑÑ‚ÑŒ Ñ€Ð¾Ð±Ñ–Ñ‚ - " << grades_num[j] - 1 << '\n';
         grades[n][j][grades_num[j] - 1] = 0;
         for (int i2 = 0; i2 < grades_num[j] - 1; i2++)
         {
@@ -64,19 +64,10 @@ int utf8_length(const string& str) {
 
 void viewStudentData(Student students[100], int numStudents) {
     cout << "---------------------------------------------------------------------------------------------------------------------------------------------------------\n";
-    cout << u8"| ¹ | Ôàì³ë³ÿ                       | ²ì'ÿ                          | Ïî áàòüêîâ³                   |Íîìåð òåëåôîíó| Ì³ñòî                              |\n";
+    cout << u8"| â„– | ÐŸÑ€Ñ–Ð·Ð²Ð¸Ñ‰Ðµ                      | Ð†Ð¼'Ñ                          | ÐŸÐ¾ Ð±Ð°Ñ‚ÑŒÐºÐ¾Ð²Ñ–                   |ÐÐ¾Ð¼ÐµÑ€ Ñ‚ÐµÐ»ÐµÑ„Ð¾Ð½Ñƒ| ÐœÑ–ÑÑ‚Ð¾                              |\n";
     cout << "---------------------------------------------------------------------------------------------------------------------------------------------------------\n";
-    //cout << "|Student No| Last Name| First Name | Father Name | Phone | City |\n";
 
     for (int i = 0; i < numStudents; i++) {
-        /*cout << "| " << i + 1;
-        cout << "| " << students[i].lName;
-        cout << "| " << students[i].fName;
-        cout << "| " << students[i].ftName;
-        cout << "| " << students[i].phone;
-        cout << "| " << students[i].city;
-        cout << "|\n";
-        */
         cout << "| " << i + 1;
         cout << string(2 - to_string(i + 1).length(), ' ') << "| " << students[i].lName;
         cout << string(30 - utf8_length(students[i].lName), ' ') << "| " << students[i].fName;
@@ -84,7 +75,6 @@ void viewStudentData(Student students[100], int numStudents) {
         cout << string(30 - utf8_length(students[i].ftName), ' ') << "| " << students[i].phone;
         cout << string(13 - utf8_length(students[i].phone), ' ') << "| " << students[i].city;
         cout << string(35 - utf8_length(students[i].city), ' ') << "|\n";
-        
     }
     cout << "---------------------------------------------------------------------------------------------------------------------------------------------------------\n";
 }
@@ -96,7 +86,7 @@ void viewGradesData(Student students[100], int numStudents, double grades[100][1
     // Print table rows for each student
     for (int i = 0; i < numStudents; i++) {
         cout << u8"-----------------------------------------------------------------------------------------------------\n";
-        cout << u8"| ¹ | Ôàì³ë³ÿ                       | ²ì'ÿ                          | Ïî áàòüêîâ³                   |\n";
+        cout << u8"| â„– | ÐŸÑ€Ñ–Ð·Ð²Ð¸Ñ‰Ðµ                      | Ð†Ð¼'Ñ                          | ÐŸÐ¾ Ð±Ð°Ñ‚ÑŒÐºÐ¾Ð²Ñ–                   |\n";
         cout << u8"-----------------------------------------------------------------------------------------------------\n";
         cout << u8"| " << i + 1;
         cout << string(2 - to_string(i + 1).length(), ' ') << "| " << students[i].lName;
@@ -111,7 +101,7 @@ void viewGradesData(Student students[100], int numStudents, double grades[100][1
                 cout << string(((grades_num[i3] - 1) * 6) + utf8_length(subj_names[i3]), '-');
                 cout << '\n';
 
-                cout << subj_names[i3] << string(((grades_num[i3] - 1) * 6) - utf8_length(subj_names[i3]) - 1, ' ') << '|' << u8"Ñóìà |\n|";
+                cout << subj_names[i3] << string(((grades_num[i3] - 1) * 6) - utf8_length(subj_names[i3]) - 1, ' ') << '|' << u8"Ð¡ÑƒÐ¼Ð° |\n|";
                 for (int i2 = 0; i2 < grades_num[i3]; i2++)
                 {
                     if (grades[i][i3][i2] < 10)
@@ -125,7 +115,7 @@ void viewGradesData(Student students[100], int numStudents, double grades[100][1
 
             for (int i2 = 0; i2 < 2; i2++)
             {
-                cout << subj_names[i3 + i2] << string(((grades_num[i3 + i2] - 1) * 6) - utf8_length(subj_names[i3 + i2]) - 1, ' ') << '|' << u8"Ñóìà |";
+                cout << subj_names[i3 + i2] << string(((grades_num[i3 + i2] - 1) * 6) - utf8_length(subj_names[i3 + i2]) - 1, ' ') << '|' << u8"Ð¡ÑƒÐ¼Ð° |";
             }
             cout << "\n|";
             for (int j = 0; j < 2; j++)
@@ -180,25 +170,25 @@ void analyzeGradesData(Student students[100], int numStudents, double grades[100
     }
 
     // Display analysis results
-    cout << u8"Ìàêñèìóì áàë³â êîæíîãî ïðåäìåòà:\n";
+    cout << u8"ÐœÐ°ÐºÑÐ¸Ð¼ÑƒÐ¼ Ð±Ð°Ð»Ñ–Ð² ÐºÐ¾Ð¶Ð½Ð¾Ð³Ð¾ Ð¿Ñ€ÐµÐ´Ð¼ÐµÑ‚Ð°:\n";
     for (int j = 0; j < subj_num; j++)
     {
-        cout << u8"Ïðåäìåò " << j + 1 << ": " << maxGrades[j] << endl;
+        cout << u8"ÐŸÑ€ÐµÐ´Ð¼ÐµÑ‚ " << j + 1 << ": " << maxGrades[j] << endl;
     }
-    cout << u8"\nÌ³í³ìóì áàë³â êîæíîãî ïðåäìåòà:\n";
+    cout << u8"\nÐœÑ–Ð½Ñ–Ð¼ÑƒÐ¼ Ð±Ð°Ð»Ñ–Ð² ÐºÐ¾Ð¶Ð½Ð¾Ð³Ð¾ Ð¿Ñ€ÐµÐ´Ð¼ÐµÑ‚Ð°:\n";
     for (int j = 0; j < subj_num; j++)
     {
-        cout << u8"Ïðåäìåò " << j + 1 << ": " << minGrades[j] << endl;
+        cout << u8"ÐŸÑ€ÐµÐ´Ð¼ÐµÑ‚ " << j + 1 << ": " << minGrades[j] << endl;
     }
 
-    cout << u8"\nÑåðåäí³é áàë êîæíîãî ñòóäåíòà:\n";
+    cout << u8"\nÐ¡ÐµÑ€ÐµÐ´Ð½Ñ–Ð¹ Ð±Ð°Ð» ÐºÐ¾Ð¶Ð½Ð¾Ð³Ð¾ ÑÑ‚ÑƒÐ´ÐµÐ½Ñ‚Ð°:\n";
     for (int i = 0; i < numStudents; i++)
     {
-        cout << u8"Ñòóäåíò " << i + 1 << " (" << students[i].lName << ' ' << students[i].fName << "): " << averageScores[i] << endl;
+        cout << u8"Ð¡Ñ‚ÑƒÐ´ÐµÐ½Ñ‚ " << i + 1 << " (" << students[i].lName << ' ' << students[i].fName << "): " << averageScores[i] << endl;
     }
 
-    cout << u8"\nÊ³ëüê³ñòü ñòóäåíò³â, ùî íå äîñÿãëè 60 áàë³â: " << failCount << endl;
-    cout << u8"Ê³ëüê³ñòü ñòóäåíò³â, ùî ìàþòü á³ëüøå 90 áàë³â: " << excellentCount << endl;
+    cout << u8"\nÐšÑ–Ð»ÑŒÐºÑ–ÑÑ‚ÑŒ ÑÑ‚ÑƒÐ´ÐµÐ½Ñ‚Ñ–Ð², Ñ‰Ð¾ Ð½Ðµ Ð´Ð¾ÑÑÐ³Ð»Ð¸ 60 Ð±Ð°Ð»Ñ–Ð²: " << failCount << endl;
+    cout << u8"ÐšÑ–Ð»ÑŒÐºÑ–ÑÑ‚ÑŒ ÑÑ‚ÑƒÐ´ÐµÐ½Ñ‚Ñ–Ð², Ñ‰Ð¾ Ð¼Ð°ÑŽÑ‚ÑŒ Ð±Ñ–Ð»ÑŒÑˆÐµ 90 Ð±Ð°Ð»Ñ–Ð²: " << excellentCount << endl;
 }
 
 bool isValidGrade(int grade)
