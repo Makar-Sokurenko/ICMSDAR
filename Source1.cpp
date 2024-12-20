@@ -13,13 +13,13 @@
 
 void create_Sample(string subj_names[100], int subj_num, int grades_num[20])
 {
-    // Створення книги
+    // РЎС‚РІРѕСЂРµРЅРЅСЏ РєРЅРёРіРё
     xlnt::workbook wb;
 
-    // Створення аркуша
+    // РЎС‚РІРѕСЂРµРЅРЅСЏ Р°СЂРєСѓС€Р°
     wb.create_sheet();
 
-    // Запис тексту в комірку
+    // Р—Р°РїРёСЃ С‚РµРєСЃС‚Сѓ РІ РєРѕРјС–СЂРєСѓ
     auto sheet = wb.active_sheet();
 
     int i2 = 0;
@@ -29,36 +29,36 @@ void create_Sample(string subj_names[100], int subj_num, int grades_num[20])
         sheet.cell(cell_ref).value(subj_names[i2++]);
         cell_ref.column_index(i + grades_num[i2 - 1]);
         cell_ref.row(3);
-        sheet.cell(cell_ref).value(u8"Сума");
+        sheet.cell(cell_ref).value(u8"РЎСѓРјР°");
     }
 
     xlnt::cell_reference cell_ref(1, 3);
-    sheet.cell(cell_ref).value(u8"№");
+    sheet.cell(cell_ref).value(u8"в„–");
     cell_ref.column_index(2);
     cell_ref.row(3);
-    sheet.cell(cell_ref).value(u8"Прізвище");
+    sheet.cell(cell_ref).value(u8"РџСЂС–Р·РІРёС‰Рµ");
     cell_ref.column_index(3);
     cell_ref.row(3);
-    sheet.cell(cell_ref).value(u8"Ім'я");
+    sheet.cell(cell_ref).value(u8"Р†Рј'СЏ");
     cell_ref.column_index(4);
     cell_ref.row(3);
-    sheet.cell(cell_ref).value(u8"По батькові");
+    sheet.cell(cell_ref).value(u8"РџРѕ Р±Р°С‚СЊРєРѕРІС–");
     cell_ref.column_index(5);
     cell_ref.row(3);
-    sheet.cell(cell_ref).value(u8"Телефон");
+    sheet.cell(cell_ref).value(u8"РўРµР»РµС„РѕРЅ");
     cell_ref.column_index(6);
     cell_ref.row(3);
-    sheet.cell(cell_ref).value(u8"Місто");
+    sheet.cell(cell_ref).value(u8"РњС–СЃС‚Рѕ");
 
-    // Збереження файлу
+    // Р—Р±РµСЂРµР¶РµРЅРЅСЏ С„Р°Р№Р»Сѓ
     wb.save(u8"Sample.xlsx");
 
-    std::cout << u8"Шаблон створено: Sample.xlsx" << std::endl;
+    std::cout << u8"РЁР°Р±Р»РѕРЅ СЃС‚РІРѕСЂРµРЅРѕ: Sample.xlsx" << std::endl;
 }
 
 void load_xlsx(xlnt::workbook wb, string subj_names[100], int subj_num, int grades_num[20], Student students[100], int numStudents, double grades[100][100][100])
 {
-    // Отримати активний аркуш
+    // РћС‚СЂРёРјР°С‚Рё Р°РєС‚РёРІРЅРёР№ Р°СЂРєСѓС€
     auto sheet = wb.sheet_by_title(u8"Sheet1");
 
     for (int i = 4; i <= numStudents + 4; i++)
@@ -102,25 +102,25 @@ void load_xlsx(xlnt::workbook wb, string subj_names[100], int subj_num, int grad
 
 void save_xlsx(xlnt::workbook wb, xlnt::workbook new_wb, string subj_names[100], int subj_num, int grades_num[20], Student students[100], int numStudents, double grades[100][100][100])
 {
-    // Завантажити вихідний файл
+    // Р—Р°РІР°РЅС‚Р°Р¶РёС‚Рё РІРёС…С–РґРЅРёР№ С„Р°Р№Р»
     xlnt::worksheet source_ws = wb.sheet_by_title("Sheet1");
 
-    // Створити новий файл і додати робочий лист
+    // РЎС‚РІРѕСЂРёС‚Рё РЅРѕРІРёР№ С„Р°Р№Р» С– РґРѕРґР°С‚Рё СЂРѕР±РѕС‡РёР№ Р»РёСЃС‚
     xlnt::worksheet new_ws = new_wb.sheet_by_title("Sheet1");
 
-    // Скопіювати ширину стовпців
+    // РЎРєРѕРїС–СЋРІР°С‚Рё С€РёСЂРёРЅСѓ СЃС‚РѕРІРїС†С–РІ
     for (const auto& col : source_ws.columns()) {
         int col_index = col.front().reference().column_index();
         new_ws.column_properties(col_index).width = source_ws.column_properties(col_index).width;
     }
 
-    // Скопіювати висоту рядків
+    // РЎРєРѕРїС–СЋРІР°С‚Рё РІРёСЃРѕС‚Сѓ СЂСЏРґРєС–РІ
     for (const auto& row : source_ws.rows()) {
         int row_index = row.front().reference().row();
         new_ws.row_properties(row_index).height = source_ws.row_properties(row_index).height;
     }
 
-    // Скопіювати дані та колір клітинок
+    // РЎРєРѕРїС–СЋРІР°С‚Рё РґР°РЅС– С‚Р° РєРѕР»С–СЂ РєР»С–С‚РёРЅРѕРє
     for (auto row : source_ws.rows()) {
         for (auto cell : row) {
             auto ref = cell.reference();
@@ -173,85 +173,3 @@ void save_xlsx(xlnt::workbook wb, xlnt::workbook new_wb, string subj_names[100],
 
     new_wb.save(u8"saved.xlsx");
 }
-
-
-
-/*void save_xlsx(xlnt::workbook wb, string subj_names[100], int subj_num, int grades_num[20], Student students[100], int numStudents, double grades[100][100][100])
-{
-    // Отримати активний аркуш
-    auto sheet = wb.sheet_by_title(u8"Sheet1");
-
-    for (int i = 4; i < numStudents + 4; i++)
-    {
-        xlnt::cell_reference cell_ref(1, i);
-        sheet.cell(cell_ref).value(i - 3);
-        cell_ref.column_index(2);
-        sheet.cell(cell_ref).value(students[i - 4].lName);
-        cell_ref.column_index(3);
-        sheet.cell(cell_ref).value(students[i - 4].fName);
-        cell_ref.column_index(4);
-        sheet.cell(cell_ref).value(students[i - 4].ftName);
-        cell_ref.column_index(5);
-        sheet.cell(cell_ref).value(students[i - 4].phone);
-        cell_ref.column_index(6);
-        sheet.cell(cell_ref).value(students[i - 4].city);
-
-        int i3 = 0;
-        for (int s = 8; i3 < subj_num; s += (grades_num[i3 - 1] + 1))
-        {
-            for (int g = s; g - s < grades_num[i3]; g++)
-            {
-                xlnt::cell_reference cell_ref(g, i);
-                sheet.cell(cell_ref).value(grades[i - 4][i3][g - s]);
-            }
-            i3++;
-        }
-    }
-    int i3 = 0;
-    for (int s = 8; i3 < subj_num; s += (grades_num[i3 - 1] + 1))
-    {
-        xlnt::cell_reference cell_ref(s, 1);
-        sheet.cell(cell_ref).value(subj_names[i3++]);
-    }
-
-    wb.save(u8"saved.xlsx");
-}
-
-void copyProp(xlnt::workbook source_wb, xlnt::workbook new_wb)
-{
-    // Завантажити вихідний файл
-    xlnt::worksheet source_ws = source_wb.sheet_by_title("Sheet1");
-
-    // Створити новий файл і додати робочий лист
-    xlnt::worksheet new_ws = new_wb.sheet_by_title("Sheet1");
-
-    // Скопіювати ширину стовпців
-    for (const auto& col : source_ws.columns()) {
-        int col_index = col.front().reference().column_index();
-        new_ws.column_properties(col_index).width = source_ws.column_properties(col_index).width;
-    }
-
-    // Скопіювати висоту рядків
-    for (const auto& row : source_ws.rows()) {
-        int row_index = row.front().reference().row();
-        new_ws.row_properties(row_index).height = source_ws.row_properties(row_index).height;
-    }
-
-    // Скопіювати дані та колір клітинок
-    for (auto row : source_ws.rows()) {
-        for (auto cell : row) {
-            auto ref = cell.reference();
-            // Скопіювати значення
-            new_ws.cell(ref).value(cell.to_string());
-
-            // Скопіювати заливку (колір фону)
-            new_ws.cell(ref).fill(cell.fill());
-
-            // Скопіювати шрифт (за необхідності)
-            new_ws.cell(ref).font(cell.font());
-        }
-    }
-    new_wb.save("zxc.xlsx");
-    return;
-}
-*/
