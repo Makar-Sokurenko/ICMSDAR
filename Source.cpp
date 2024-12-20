@@ -19,29 +19,39 @@ double grades[100][100][100] = { 0 };
 int numStudents;
 
 int main() {
-    // зміна кодової таблиці символів – підключення української мови
+    // Р·РјС–РЅР° РєРѕРґРѕРІРѕС— С‚Р°Р±Р»РёС†С– СЃРёРјРІРѕР»С–РІ вЂ“ РїС–РґРєР»СЋС‡РµРЅРЅСЏ СѓРєСЂР°С—РЅСЃСЊРєРѕС— РјРѕРІРё
     //setlocale(LC_ALL, "Ukr"); 
     setlocale(LC_ALL, "uk_UA.UTF-8");  // Set Ukrainian locale
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
     numStudents = 12;
     subj_num = 5;
-    subj_names[0] = u8"Архітектура комп'ютерів";
+    subj_names[0] = u8"РђСЂС…С–С‚РµРєС‚СѓСЂР° РєРѕРјРї'СЋС‚РµСЂС–РІ";
     grades_num[0] = 11;
-    subj_names[1] = u8"Комп'ютерна схемотехніка";
+    subj_names[1] = u8"РљРѕРјРї'СЋС‚РµСЂРЅР° СЃС…РµРјРѕС‚РµС…РЅС–РєР°";
     grades_num[1] = 10;
-    subj_names[2] = u8"Моделі та структури даних";
+    subj_names[2] = u8"РњРѕРґРµР»С– С‚Р° СЃС‚СЂСѓРєС‚СѓСЂРё РґР°РЅРёС…";
     grades_num[2] = 15;
-    subj_names[3] = u8"Теорія інформації і кодування";
+    subj_names[3] = u8"РўРµРѕСЂС–СЏ С–РЅС„РѕСЂРјР°С†С–С— С– РєРѕРґСѓРІР°РЅРЅСЏ";
     grades_num[3] = 11;
-    subj_names[4] = u8"Технології програмування";
+    subj_names[4] = u8"РўРµС…РЅРѕР»РѕРіС–С— РїСЂРѕРіСЂР°РјСѓРІР°РЅРЅСЏ";
     grades_num[4] = 17;
 
     string file_name = u8"table.xlsx";
-    // Відкрити існуючу книгу Excel
+    // Р’С–РґРєСЂРёС‚Рё С–СЃРЅСѓСЋС‡Сѓ РєРЅРёРіСѓ Excel
     xlnt::workbook wb;
     xlnt::workbook new_wb;
-    wb.load(file_name);
+    try
+    {
+        wb.load(file_name);
+    }
+    catch (const std::exception& e)
+    {
+        cout << e.what() << '\n';
+        create_Sample(subj_names, subj_num, grades_num);
+        return 0;
+    }
+    
     load_xlsx(wb, subj_names, subj_num, grades_num, students, numStudents, grades);
 
     while (true)
@@ -58,14 +68,14 @@ int main() {
         switch (c)
         {
         case 1:
-            cout << u8"Введіть номер студента (max - " << numStudents << ") ";
+            cout << u8"Р’РІРµРґС–С‚СЊ РЅРѕРјРµСЂ СЃС‚СѓРґРµРЅС‚Р° (max - " << numStudents << ") ";
             cin >> n;
             n--;
             clearBuffer();
             enterStudentData(students, n);
             break;
         case 2:
-            cout << u8"Введіть номер студента (max - " << numStudents << ") ";
+            cout << u8"Р’РІРµРґС–С‚СЊ РЅРѕРјРµСЂ СЃС‚СѓРґРµРЅС‚Р° (max - " << numStudents << ") ";
             cin >> n;
             n--;
             clearBuffer();
