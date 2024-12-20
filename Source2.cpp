@@ -19,7 +19,7 @@ void displayMenu() {
     cout << u8"2. Ввести інформацію про бали\n";
     cout << u8"3. Вивести інформацію про студентів\n";
     cout << u8"4. Вивести інформацію про бали\n";
-    cout << u8"5. Аналіз інформації про бали\n";
+    cout << u8"5. Аналіз успішності студентів\n";
     cout << u8"6. Зберегти зміну до xlsx файлу\n";
     cout << u8"7. Створити шаблон xlsx файлу\n";
     cout << u8"8. Exit\n";
@@ -75,6 +75,7 @@ void viewStudentData(Student students[100], int numStudents) {
         cout << string(30 - utf8_length(students[i].ftName), ' ') << "| " << students[i].phone;
         cout << string(13 - utf8_length(students[i].phone), ' ') << "| " << students[i].city;
         cout << string(35 - utf8_length(students[i].city), ' ') << "|\n";
+        
     }
     cout << "---------------------------------------------------------------------------------------------------------------------------------------------------------\n";
 }
